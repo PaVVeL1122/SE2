@@ -4,44 +4,60 @@
 
 using namespace std;
 
+/**
   Complex :: Complex ( double aRe  , double   aIm )
 {
   Re = aRe;   Im = aIm;
 }
-
+  @brief Constructor with parameters for Complex class
   Complex ::  Complex ( const Complex & aRval )
 {
   Re = aRval.Re;
   Im = aRval.Im;
 }
   Complex :: ~ Complex ()
+  @param aRe Real part of the complex number
 {
 Re = 0.0;
 Im = 0.0;
 }
+  @param aIm Imaginary part of the complex number
   void Complex ::  Set (  double aRe, double aIm ) {   Re = aRe; Im = aIm; }
   Complex :: operator double ()
 {
   return abs ();
 }
 
+*/
+
+/**
   double Complex :: abs ()
 {
   return sqrt ( Re * Re + Im * Im );
 }
-  Complex Complex ::  operator + ( const Complex & aRval )
+  @brief Copy constructor for Complex class
+
 {
   Complex Result;
   Result.Re = Re + aRval. Re;
   Result.Im = Im + aRval.Im;
   return Result;
 }
+  @param aRval The complex number to copy
+  Complex Complex ::  operator + ( const Complex & aRval )
+*/
+
+/**
   Complex Complex :: operator - ( const Complex & aRval )
   Complex Result;
   Result.Re = Re - aRval.Re;
   Result.Im = Im - aRval.Im;
   return Result;
 }
+  @param aRval The complex number to copy
+*/
+
+/**
   Complex Complex :: operator + ( const double & aval )
 {
   Complex result;
@@ -49,13 +65,14 @@ Im = 0.0;
   result.Im = Im;
   return result;
 }
+  @brief Set method to set the real and imaginary parts of the complex number
   Complex Complex :: operator - ( const  double & aRval )
 {
   Complex Result( * this );
   Result.Re = Re - aRval;
   return Result;
 }
-
+  @param aRe Real part of the complex number
   Complex Complex  :: operator * ( const Complex  & aRval )
 {
   Complex Result;
@@ -63,7 +80,10 @@ Im = 0.0;
   Result.Im = Re * aRval.Im + Im * aRval.Re;
   return Result;
 }
+  @param aIm Imaginary part of the complex number
+*/
 
+/**
   Complex Complex :: operator * ( const double & aRval )
 {
   Complex Result;
@@ -71,6 +91,7 @@ Im = 0.0;
   Result.Im = Im * aRval;
   return Result;
 }
+  @brief Conversion operator to convert a Complex number to a double
   Complex Complex::operator/ (const double& aRval)
 {
   Complex Result;
@@ -78,20 +99,25 @@ Im = 0.0;
   Result.Im = Im / aRval;
   return Result;
 }
+  @return Absolute value of the complex number
+*/
 
+/**
   Complex & Complex :: operator + =  ( const Complex & aRval )
 {
   Re + = aRval.Re;
   Im + = aRval.Im;
   return * this;
 }
-
+  @brief Method to calculate the absolute value of the complex number
   Complex & Complex :: operator - = ( const Complex & aRval )
 {
   Re - = aRval.Re;
   Im  - = aRval.Im;
   return * this;
 }
+  @return Absolute value of the complex number
+*/
 
   Complex & Complex :: operator * = ( const Complex & aRval )
 {
@@ -156,7 +182,7 @@ a.Im >> tmp;
   stream << a.Im  << 'i';
   return stream;
 }
-
+/**
   Complex operator + ( const double & aLval, const Complex & aRval )
 {
   Complex Result;
@@ -164,7 +190,7 @@ a.Im >> tmp;
   Result. Im =  aRval.Im;
   return Result;
 }
-
+  @brief Overloaded operator+ to add two complex numbers
   Complex operator - ( const double & aLval, const Complex & aRval )
 {
   Complex Result;
@@ -172,7 +198,7 @@ a.Im >> tmp;
   Result.Im = - aRval.Im;
   return Result;
 }
-
+  @param aRval The complex number to add
   Complex operator * ( const double & aLval, const Complex & a )
 {
   Complex r;
@@ -180,3 +206,5 @@ a.Im >> tmp;
   r.Im = aLval * a.Im;
   return Result;
 }
+  @return Result of addition
+*/
